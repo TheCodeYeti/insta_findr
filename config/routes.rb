@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   root 'tags#index'
 
+  post 'search', to: 'tags#search', as: 'search'
+
 end

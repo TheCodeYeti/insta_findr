@@ -37,12 +37,18 @@ gem 'jbuilder', '~> 2.5'
 # foundation for css styling
 gem 'foundation-rails'
 
+# fun http request gem
+gem 'httparty'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 
   # figaro to set ENV variables
   gem 'figaro'
+
+  # pry for debugging
+  gem 'pry'
 
 end
 
