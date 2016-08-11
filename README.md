@@ -1,3 +1,5 @@
+# README
+
 # insta_findr
 app that takes a hashtag, start date, and end date, and collects submissions from Instagram
 
@@ -16,3 +18,24 @@ Rails will help me get started pretty fast and does a lot for free - and I'm all
 Postgres will be handled really nicely in Heroku and is pretty versatile
 **Heroku server**
 Easy deployment and allows for free dev server
+
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
