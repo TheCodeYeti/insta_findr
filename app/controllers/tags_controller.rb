@@ -21,7 +21,7 @@ class TagsController < ApplicationController
 
       # this basically turns it into an upsert even thought I'm not using Mongo
       # tag = Tag.new() unless tag = Tag.find(instagram_id: result['id'])
-      Tag.new()
+      tag = Tag.new()
       tag.hashtag = tagname
       tag.instagram_id = result['id']
       tag.created_time = result['created_time']
