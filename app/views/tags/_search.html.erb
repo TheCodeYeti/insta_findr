@@ -1,0 +1,15 @@
+<%= form_tag '/search' do %>
+
+  <div class="search">
+
+    <%= label_tag :hashtag %>
+    <%= text_field_tag :hashtag %>
+
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'search' %>
+  </div>
+
+
+<% end %>
