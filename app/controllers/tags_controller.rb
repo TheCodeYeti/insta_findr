@@ -19,18 +19,25 @@ class TagsController < ApplicationController
 
     results.each do |result|
 
-      tag = Tag.new()
+      # this basically turns it into an upsert even thought I'm not using Mongo
+      tag = Tag.new() unless tag = Tag.find(instagram_id: result['id'])
+
       tag.hashtag = tagname
       tag.instagram_id = result['id']
       tag.created_time = result['created_time']
-      tag.username = result['username']
+      tag.username = result['user']['username']
       tag.link = result['link']
-      tag.video = result['video'] if result['video']
-      tag.image = result['image'] if result['image']
+      tag.video = result['videos']['standard_resolution']['url'] if result['videos']
+      tag.photo = result['images']['standard_resolution']['url'] if result['images']
       tag.save
 
     end
-    redirect_to results_path(search_params)
+
+    @tags = Tag.where(hashtag: params[:hashtag])
+
+    respond_to do |format|
+      format.json { @tags }
+      format.html
   end
 
   private
