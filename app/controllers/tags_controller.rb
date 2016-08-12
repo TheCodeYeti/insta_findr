@@ -30,10 +30,9 @@ class TagsController < ApplicationController
       tag.video = result['videos']['standard_resolution']['url'] if result['videos']
       tag.photo = result['images']['standard_resolution']['url'] if result['images']
       tag.save
-
     end
 
-    @tags = Tag.where(hashtag: params[:hashtag])
+    @tags = Tag.where(hashtag: tagname)
 
     respond_to do |format|
       format.json { render json: @tags }

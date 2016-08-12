@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811213607) do
+ActiveRecord::Schema.define(version: 20160812011420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160811213607) do
     t.string   "link"
     t.string   "photo"
     t.string   "video"
-    t.integer  "hashtag"
+    t.text     "hashtag"
   end
 
 end

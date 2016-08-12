@@ -40,6 +40,9 @@ gem 'foundation-rails'
 # fun http request gem
 gem 'httparty'
 
+# use React for front end
+gem 'react-rails'
+
 gem 'rack-cors'
 
 group :development, :test do
