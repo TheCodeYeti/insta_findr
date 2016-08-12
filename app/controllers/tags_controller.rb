@@ -37,7 +37,7 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       format.json { @tags }
-      format.html
+      # format.html
     end
   end
 
