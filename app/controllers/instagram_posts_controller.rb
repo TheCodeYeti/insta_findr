@@ -9,10 +9,10 @@ class InstagramPostsController < ApplicationController
   end
 
   def search
-    tagname = search_params[:hashtag]
+    @tagname = search_params[:hashtag].split(" ").last
     start_date = search_params[:start_date]
     end_date = search_params[:end_date]
-    url = "https://api.instagram.com/v1/tags/#{tagname}/media/recent?access_token=#{ENV['ACCESS_TOKEN']}"
+    url = "https://api.instagram.com/v1/tags/#{@tagname}/media/recent?access_token=#{ENV['ACCESS_TOKEN']}"
     response = HTTParty.get(url)
     body = JSON.load(response.body)
     meta = response['meta']
@@ -52,7 +52,7 @@ class InstagramPostsController < ApplicationController
 
     end
 
-    if hashtag = Hashtag.find_by(name: tagname)
+    if hashtag = Hashtag.find_by(name: @tagname)
       @instagram_posts = hashtag.instagram_posts
     end
 

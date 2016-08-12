@@ -2,13 +2,13 @@
 
   <div class="search">
 
-    <%= label_tag :hashtag %>
+    <%= label_tag :hashtag, "Tell me what you're thinking:" %>
     <%= text_field_tag :hashtag %>
 
   </div>
 
   <div class="actions">
-    <%= submit_tag 'search', id: 'search-button' %>
+    <%= submit_tag 'search', id: 'search-button', class: "alert button expand" %>
   </div>
 
 

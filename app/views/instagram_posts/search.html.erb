@@ -1,7 +1,7 @@
 <%= render 'search_bar' %>
 
 <div class="row column text-center">
-  <h1>Responses</h1>
+  <h1>Results for <strong>#<%= @tagname %></strong></h1>
 </div>
 <% if @instagram_posts %>
   <% @instagram_posts.each do |instagram_post| %>
