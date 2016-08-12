@@ -1,21 +1,26 @@
 <%= render 'search_bar' %>
 
-<div class="row column tex-center">
+<div class="row column text-center">
   <h1>Responses</h1>
 </div>
-
-<% @tags.each do |tag| %>
-  <div class="row medium-8 large-7 columns">
-    <div class="blog-post">
-      <h3><%= tag.username %> <small><%= tag.created_at %></small></h3>
-      <img class="thumbnail" src="<%= tag.photo %>">
-      <!-- <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p> -->
-      <!-- <div class="callout"> -->
-        <!-- <ul class="menu simple"> -->
-          <!-- <li><a href="#">Author: Mike Mikers</a></li> -->
-          <!-- <li><a href="#">Comments: 3</a></li> -->
-        <!-- </ul> -->
+<% if @instagram_posts %>
+  <% @instagram_posts.each do |instagram_post| %>
+    <div class="row medium-8 large-7 columns">
+      <div class="blog-post">
+        <h3><%= instagram_post.username %> <small><%= instagram_post.created_at %></small></h3>
+        <img class="thumbnail" src="<%= instagram_post.photo %>">
+        <!-- <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p> -->
+        <!-- <div class="callout"> -->
+          <!-- <ul class="menu simple"> -->
+            <!-- <li><a href="#">Author: Mike Mikers</a></li> -->
+            <!-- <li><a href="#">Comments: 3</a></li> -->
+          <!-- </ul> -->
+        </div>
       </div>
     </div>
+  <% end %>
+<% else %>
+  <div class="row medium-8 large-7 columns text-center">
+    <h3>No results</h3>
   </div>
 <% end %>

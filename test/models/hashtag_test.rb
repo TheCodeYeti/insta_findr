@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InstagramPostTest < ActiveSupport::TestCase
+class HashtagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

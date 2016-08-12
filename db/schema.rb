@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812011420) do
+ActiveRecord::Schema.define(version: 20160812022249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "tags", force: :cascade do |t|
+  create_table "hashtags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instagram_post_hashtags", force: :cascade do |t|
+    t.integer  "hashtag_id"
+    t.integer  "instagram_post_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["hashtag_id"], name: "index_instagram_post_hashtags_on_hashtag_id", using: :btree
+    t.index ["instagram_post_id"], name: "index_instagram_post_hashtags_on_instagram_post_id", using: :btree
+  end
+
+  create_table "instagram_posts", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.text     "instagram_id"
@@ -27,4 +42,6 @@ ActiveRecord::Schema.define(version: 20160812011420) do
     t.text     "hashtag"
   end
 
+  add_foreign_key "instagram_post_hashtags", "hashtags"
+  add_foreign_key "instagram_post_hashtags", "instagram_posts"
 end
