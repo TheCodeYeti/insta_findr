@@ -36,8 +36,8 @@ class TagsController < ApplicationController
     @tags = Tag.where(hashtag: params[:hashtag])
 
     respond_to do |format|
-      format.json { @tags }
-      # format.html
+      format.json { render json: @tags }
+      format.html
     end
   end
 
